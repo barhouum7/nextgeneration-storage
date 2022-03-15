@@ -1,0 +1,33 @@
+{
+  "name": "d-document-storage",
+  "version": "1.0.0",
+  "description": "A decentralized and censorship-resistant file storage Decentralized Application (Dapp) using Ethereum Blockchain",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barhouum7/D-Document-Storage.git"
+  },
+  "keywords": [
+    "Ethereum",
+    "Blockchain",
+    "decentralized",
+    "file",
+    "storage",
+    "Dapp",
+    "truffle",
+    "smart-contracts",
+    "Ganache"
+  ],
+  "author": "contact@ibrahimbhmbs.tech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barhouum7/D-Document-Storage/issues"
+  },
+  "homepage": "https://github.com/barhouum7/D-Document-Storage#readme"
+}

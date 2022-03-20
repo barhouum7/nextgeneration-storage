@@ -2,6 +2,7 @@
   "name": "d-document-storage",
   "version": "1.0.0",
   "description": "A decentralized and censorship-resistant file storage Decentralized Application (Dapp) using Ethereum Blockchain",
+  "homepage": ".",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -69,6 +70,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/barhouum7/D-Document-Storage/issues"
-  },
-  "homepage": "https://github.com/barhouum7/D-Document-Storage#readme"
+  }
 }

@@ -66,5 +66,18 @@ contract('DDocumentStorage', ([deployer, uploader]) => {
             await ddstorage.uploadFile(fileHash, fileSize, fileType, fileName, '', { from: uploader }).should.be.rejected;
         })
 
+        // Check from Struct
+        it('lists file', async () => {
+            const file = await ddstorage.files(fileCount)
+
+            assert.equal(file.fileId.toNumber(), fileCount.toNumber(), 'Id is correct!')
+            assert.equal(file.fileHash, fileHash, 'Hash is correct!')
+            assert.equal(file.fileSize, fileSize, 'Size is correct!')
+            assert.equal(file.fileType, fileType, 'Type is correct!')
+            assert.equal(file.fileName, fileName, 'Name is correct!')
+            assert.equal(file.fileDescription, fileDescription, 'Description is correct!')
+            assert.equal(file.uploader, uploader, 'Uploader is correct!')
+        })
+
     })
 })

@@ -104,7 +104,7 @@ const privateKeys = process.env.PRIVATE_KEYS || ""
 module.exports = {
   networks: {
     development: {
-      host: "172.21.176.1",
+      host: "172.29.0.1",
       port: 7545,
       network_id: "*" // Match any network id
     },

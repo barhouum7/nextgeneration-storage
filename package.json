@@ -1,8 +1,9 @@
 {
-  "name": "d-document-storage",
+  "name": "nextgeneration-storage",
   "version": "1.0.0",
   "description": "A decentralized and censorship-resistant file storage Decentralized Application (Dapp) using Ethereum Blockchain",
-  "homepage": ".",
+  "homepage": "https://barhouum7.github.io/nextgeneration-storage",
+  "private": true,
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -53,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/barhouum7/D-Document-Storage.git"
+    "url": "git+https://github.com/barhouum7/nextgeneration-storage.git"
   },
   "keywords": [
     "Ethereum",
@@ -69,6 +70,6 @@
   "author": "contact@ibrahimbhmbs.tech",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/barhouum7/D-Document-Storage/issues"
+    "url": "https://github.com/barhouum7/nextgeneration-storage/issues"
   }
 }

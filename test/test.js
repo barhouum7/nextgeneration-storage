@@ -30,7 +30,7 @@ contract('DDocumentStorage', ([deployer, uploader]) => {
 
     describe('file', async () => {
         let result, fileCount
-        const fileHash = ''
+        const fileHash = 'QmV8cfu6n4NT5xRr2AHdKxFMTZEJrA44qgrBCr739BN9Wb'
         const fileSize = '1'
         const fileType = 'TypeOfTheFile'
         const fileName = 'NameOfTheFile'

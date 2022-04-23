@@ -1,7 +1,7 @@
 {
   "name": "nextgeneration-storage",
   "version": "1.0.0",
-  "description": "A decentralized and censorship-resistant file storage Decentralized Application (Dapp) using Ethereum Blockchain",
+  "description": "A censorship-resistant file storage Decentralized Application (Dapp) using Ethereum Blockchain",
   "homepage": "https://barhouum7.github.io/nextgeneration-storage",
   "private": true,
   "main": "truffle-config.js",
@@ -35,6 +35,8 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
+    "react-icons": "^4.3.1",
+    "react-jdenticon": "^1.0.0",
     "react-scripts": "^3.4.3",
     "truffle": "^5.1.45",
     "truffle-hdwallet-provider-privkey": "^0.3.0",

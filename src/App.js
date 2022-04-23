@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
-import Main from './Main';
+import Navbar from './components/navbar/Navbar';
+import Main from './components/Main';
 import Web3 from 'web3';
-// import './App.css';
+import './App.css';
 
 //Declare IPFS
 
 class App extends Component {
-    async componentWillMount() {
+    async componentDidMount() {
         await this.loadWeb3();
         await this.loadBlockchainData();
     }
@@ -45,6 +45,7 @@ class App extends Component {
         //Else
         //alert Error
 
+        this.setState({ loading: false })
     }
 
     // Get file from user
@@ -72,7 +73,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            loading: true
         }
         // Bind Functions
 
@@ -85,7 +86,8 @@ class App extends Component {
                 {
                     this.state.loading
                         ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
-                        : <Main
+                        :
+                        <Main
                             files={this.state.files}
                             captureFile={this.captureFile}
                             uploadFile={this.uploadFile}

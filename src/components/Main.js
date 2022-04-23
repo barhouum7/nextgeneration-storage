@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 // import { convertBytes } from './helpers';
 // import moment from 'moment';
+// import { Header } from '../Containers'
 
 class Main extends Component {
     render() {
         return (
-            <div className="container-fluid mt-5 text-center" style={{ width: '1248px' }}>
+            <div>
                 <div className="row">
-                    <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '900px' }}>
+                    <main role="main">
                         <div className="content">
                             <p>&nbsp;</p>
                             <h1>A decentralized solution for storing our clients' documents in a secure and transparent manner.</h1>

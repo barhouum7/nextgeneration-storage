@@ -1,0 +1,62 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 6rem;
+}
+
+.navbar-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-logo {
+    margin-right: 2rem;
+}
+
+.navbar-logo .gradient__text {
+    font-weight: 500;
+}
+
+.navbar-links_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-connectW {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar-links_container .text,
+.navbar-connectW p,
+.navbar-menu_container p {
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+    text-transform: capitalize;
+
+    margin: 0.1rem;
+    cursor: pointer;
+}
+
+.navbar-connectW button,
+.navbar-menu_container button {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    color: #fff;
+    background-color: #FF4820;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}

@@ -5,7 +5,6 @@ import { RiMenu3Line, RiCloseLine} from 'react-icons/ri'
 import Logo from '../../assets/logo.jpg'
 import './navbar.css'
 
-
 class Navbar extends Component {
   
   
@@ -16,10 +15,46 @@ class Navbar extends Component {
     }
   }
 
+  Menu() {
+    return(
+      <>
+      <p><a href='#home'>Home</a></p>
+      <p><a href='#about'>About Us</a></p>
+      <p><a href='#blog'>Blog</a></p>
+      <p><a href='https://etherscan.io/'>Transactions</a></p>
+      <p><a href='#faq'>FAQ</a></p>
+      <p><a href='#contact'>Contact Us</a></p>
+      <span>
+      <small id="account">
+                <a target="_blank"
+                   alt=""
+                   className="text gradient__text"
+                   rel="noopener noreferrer"
+                   href={"https://etherscan.io/address/" + this.props.account}>
+                  {this.props.account ? this.props.account.substring(0,6) : '0x0'}...{this.props.account ? this.props.account.substring(38,42) : '0x0'}
+                </a>
+              </small>
+              { this.props.account
+                ? 
+                <img
+                    alt=""
+                    className='ml-2'
+                    width='30'
+                    height='30'
+                    src={`data:image/png;base64,${new Identicon(this.props.account, 30).toString()}`}
+                  />
+                : <span></span>
+              }
+    
+    </span>
+      </>
+    )    
+}
+
   render() {
     
     return (            
-            <div className="navbar gradient__bg">
+            <div className="navbar">
             <div className='navbar-logo'>
                 <a
                     className="gradient__text"
@@ -33,26 +68,7 @@ class Navbar extends Component {
             </div>
             <div className="navbar-links">
             <div className='navbar-links_container'>
-            <small id="account">
-              <a target="_blank"
-                 alt=""
-                 className="text gradient__text"
-                 rel="noopener noreferrer"
-                 href={"https://etherscan.io/address/" + this.props.account}>
-                {this.props.account ? this.props.account.substring(0,6) : '0x0'}...{this.props.account ? this.props.account.substring(38,42) : '0x0'}
-              </a>
-            </small>
-            { this.props.account
-              ? 
-              <img
-                  alt=""
-                  className='ml-2'
-                  width='30'
-                  height='30'
-                  src={`data:image/png;base64,${new Identicon(this.props.account, 30).toString()}`}
-                />
-              : <span></span>
-            }
+            {this.Menu()}
             </div>
             <div className='navbar-connectW'>
               <button type='button'>Connect Wallet</button>
@@ -63,8 +79,13 @@ class Navbar extends Component {
                 : <RiMenu3Line className='gradient_text' size={27} onClick={() => this.setState({ toggleMenu: true })} />
               }
               { this.state.toggleMenu && (
-                <div className='navbar-menu_container scroll-up'>
-
+                <div className='navbar-menu_container scale-up-center'>
+                  <div className='navbar-menu_container-links'>
+                  {this.Menu()}
+                  <div className='navbar-menu_container-links-connectW'>
+                    <button type='button'>Connect Wallet</button>
+                  </div>
+                  </div>
                 </div>
               )}
             </div>

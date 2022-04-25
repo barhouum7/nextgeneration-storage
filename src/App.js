@@ -1,10 +1,14 @@
+import DDocumentStorage from '../src/abis/DDocumentStorage.json'
 import React, { Component } from 'react';
 import Navbar from './components/navbar/Navbar';
+import { Header } from './Containers'
 import Main from './components/Main';
 import Web3 from 'web3';
 import './App.css';
 
 //Declare IPFS
+const ipfsClient = require('ipfs-http-client')
+const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
 
 class App extends Component {
     async componentDidMount() {
@@ -33,19 +37,32 @@ class App extends Component {
         const accounts = await web3.eth.getAccounts()
         //Save the Account to the State object, so we can fetch back out to the page
         this.setState({ account: accounts[0] })
+        
         //Network ID
-
+        const networkId = await web3.eth.net.getId()
         //IF got connection, get data from contracts
-        //Assign contract
+        const networkData = DDocumentStorage.networks[networkId]
+        if(networkData) {
+            //Assign contract then save it to the State Object
+            const ddstorage = new web3.eth.Contract(DDocumentStorage.abi, networkData.address)
+            this.setState({ ddstorage })
+            //Get files amount then save it to the State Object
+            const filesCount = await ddstorage.methods.fileCount().call()
+            this.setState({ filesCount })
+            //Load files&sort by the newest
+            for (var i = filesCount; i >= 1; i--) {
+                const file = await ddstorage.methods.files(i).call()
+                this.setState({
+                    files: [...this.state.files, file]
+                })
+            }
+        } else {
+            //Else
+            //alert Error
+            window.alert('DDocumentStorage contract not deployed to the detected network.')
+        }
+        this.setState({ loading: false })            
 
-        //Get files amount
-
-        //Load files&sort by the newest
-
-        //Else
-        //alert Error
-
-        this.setState({ loading: false })
     }
 
     // Get file from user
@@ -73,7 +90,12 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            loading: true
+            account: '',
+            ddstorage: null,
+            files: [],
+            loading: false,
+            type: null,
+            name: null
         }
         // Bind Functions
 
@@ -81,8 +103,9 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <div className='gradient__bg'>
                 <Navbar account={this.state.account} />
+                <Header />
                 {
                     this.state.loading
                         ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>

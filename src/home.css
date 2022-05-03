@@ -1,0 +1,41 @@
+.connectW-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.connectW-container p {
+    color: #fff;
+    font-family: var(--font-family);
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 25px;
+    text-transform: capitalize;
+    text-align: center;
+
+    margin: 1rem 2rem 1rem 0;
+}
+
+.connectW-container button:hover,
+.connectW-container__text-info:hover {
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.connectW-container button {
+    padding: 0.5rem 1rem;
+    margin-top: 10rem;
+    color: #fff;
+    background-color: #FF4820;
+    font-family: var(--font-family);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}

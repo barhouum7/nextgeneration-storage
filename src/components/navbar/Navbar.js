@@ -11,7 +11,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleMenu: false
+      toggleMenu: false,
     }
   }
 
@@ -21,7 +21,7 @@ class Navbar extends Component {
       <p><a href='#home'>Home</a></p>
       <p><a href='#about'>About Us</a></p>
       <p><a href='#blog'>Blog</a></p>
-      <p><a href='https://etherscan.io/'>Transactions</a></p>
+      <p><a href='https://www.rinkeby.io/#stats' target="_blank" rel="noopener noreferrer">Transactions</a></p>
       <p><a href='#faq'>FAQ</a></p>
       <p><a href='#contact'>Contact Us</a></p>
       <span>
@@ -52,7 +52,7 @@ class Navbar extends Component {
 }
 
   render() {
-    
+    // const { loadWeb3 } = this.props;
     return (            
             <div className="navbar">
             <div className='navbar-logo'>
@@ -70,9 +70,7 @@ class Navbar extends Component {
             <div className='navbar-links_container'>
             {this.Menu()}
             </div>
-            <div className='navbar-connectW'>
-              <button type='button'>Connect Wallet</button>
-            </div>
+            
             <div className='navbar-menu'>
             { this.state.toggleMenu
                 ? <RiCloseLine className='gradient_text' size={27} onClick={() => this.setState({ toggleMenu: false })} />
@@ -82,9 +80,7 @@ class Navbar extends Component {
                 <div className='navbar-menu_container scale-up-center'>
                   <div className='navbar-menu_container-links'>
                   {this.Menu()}
-                  <div className='navbar-menu_container-links-connectW'>
-                    <button type='button'>Connect Wallet</button>
-                  </div>
+                  
                   </div>
                 </div>
               )}

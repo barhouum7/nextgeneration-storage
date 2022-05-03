@@ -17,7 +17,9 @@
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
-    "@truffle/hdwallet-provider": "^1.1.0",
+    "@3rdweb/hooks": "^1.9.2",
+    "@metamask/onboarding": "^1.0.1",
+    "@truffle/hdwallet-provider": "^1.7.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-preset-es2015": "6.24.1",
@@ -35,11 +37,11 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
+    "react-hot-toast": "^2.2.0",
     "react-icons": "^4.3.1",
     "react-jdenticon": "^1.0.0",
     "react-scripts": "^3.4.3",
     "truffle": "^5.1.45",
-    "truffle-hdwallet-provider-privkey": "^0.3.0",
     "web3": "^1.3.0"
   },
   "eslintConfig": {

@@ -98,13 +98,13 @@
 require('babel-register');
 require('babel-polyfill');
 require('dotenv').config();
-const HDWalletProvider = require('truffle-hdwallet-provider-privkey');
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 const privateKeys = process.env.PRIVATE_KEYS || ""
 
 module.exports = {
   networks: {
     development: {
-      host: "172.20.48.1",
+      host: "172.27.64.1",
       port: 7545,
       network_id: "*" // Match any network id
     },
@@ -118,6 +118,22 @@ module.exports = {
       gas: 5000000,
       gasPrice: 25000000000,
       network_id: 3
+    },
+    goerli: {
+      provider: function () {
+        return new HDWalletProvider(
+          privateKeys.split(','), // Array of account private keys
+          `wss://eth-goerli.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`// Url to an Ethereum Node
+        )
+      },
+      gas: 5000000,
+      gasPrice: 25000000000,
+      network_id: 5,
+      skipDryRun: true,
+      confirmations: 10,
+      networkCheckTimeout: 1000000,
+      websocket: true,
+      timeoutBlocks: 90000
     }
   },
   contracts_directory: './src/contracts/',

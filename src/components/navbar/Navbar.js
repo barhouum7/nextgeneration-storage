@@ -20,7 +20,7 @@ class Navbar extends Component {
       <>
       <p><a href='#home'>Home</a></p>
       <p><a href='#about'>About Us</a></p>
-      <p><a href='#blog'>Blog</a></p>
+      <p><a href='#upload'>Share File</a></p>
       <p><a href='https://www.rinkeby.io/#stats' target="_blank" rel="noopener noreferrer">Transactions</a></p>
       <p><a href='#faq'>FAQ</a></p>
       <p><a href='#contact'>Contact Us</a></p>

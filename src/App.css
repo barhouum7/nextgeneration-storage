@@ -6,7 +6,23 @@
 }
 
 body {
-    background: var(--color-bg);
+    /* ff 3.6+ */
+    background:-moz-linear-gradient(80deg, rgba(4, 30, 59, 1) 0%, rgba(4, 12, 24, 1) 100%); 
+
+    /* safari 5.1+,chrome 10+ */
+    background:-webkit-linear-gradient(80deg, rgba(4, 30, 59, 1) 0%, rgba(4, 12, 24, 1) 100%);
+
+    /* opera 11.10+ */
+    background:-o-linear-gradient(80deg, rgba(4, 30, 59, 1) 0%, rgba(4, 12, 24, 1) 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#040C18', endColorstr='#041E3B', GradientType=1 );
+
+    /* ie 10+ */
+    background:-ms-linear-gradient(80deg, rgba(4, 30, 59, 1) 0%, rgba(4, 12, 24, 1) 100%);
+
+    /* global 94%+ browsers support */
+    background:linear-gradient(80deg, rgba(4, 30, 59, 1) 0%, rgba(4, 12, 24, 1) 100%);
 }
 
 a {

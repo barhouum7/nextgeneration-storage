@@ -4,6 +4,7 @@ import App from '../../App'
 import toast, { Toaster } from 'react-hot-toast'
 // import { useWeb3 } from '@3rdweb/hooks'
 
+import Explain from '../../components/explain/Explain'
 import './button.css'
 
 const ONBOARD_TEXT = 'Click here to install MetaMask!';
@@ -164,6 +165,7 @@ export default function Button() {
           <p><span role="img" aria-label='MetaMask-emoji'>🦊</span><span className='connectW-container__text-info'>MetaMask is not connected to this site. 
             <br />To connect to our web3 site, find and click the connect button.</span></p>
           </div>
+          <Explain />
         </div>
       </>
       )}

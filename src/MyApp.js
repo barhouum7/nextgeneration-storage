@@ -1,5 +1,6 @@
 import React from 'react';
-import Home from './Home'
+// import Home from './Home'
+import Button from './components/button/Button'
 
 import { ThirdwebWeb3Provider } from '@3rdweb/hooks'
 
@@ -18,7 +19,7 @@ const MyApp = () => {
       supportedChainIds={supportedChainIds}
       connectors={connectors}
     >
-      <Home />
+      <Button />
     </ThirdwebWeb3Provider>
   )
 }

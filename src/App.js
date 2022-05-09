@@ -1,15 +1,19 @@
 import DDocumentStorage from '../src/abis/DDocumentStorage.json'
 import React, { Component } from 'react';
 import Navbar from './components/navbar/Navbar';
-import { Header } from './Containers'
-import Main from './components/Main';
+import { Footer, Header, InfoTable, UploadFileForm } from './Containers'
 import Web3 from 'web3';
 import toast, { Toaster } from 'react-hot-toast'
 import './App.css';
 
 //Declare IPFS
-// const ipfsClient = require('ipfs-http-client')
-// const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
+/**
+ * Step1: Prepare File For Upload
+ * Step2: Upload File to IPFS
+ * Step3: Store on Blockchain
+ */
+const ipfsClient = require('ipfs-http-client')
+const ipfs = ipfsClient({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' })
 
 export default class App extends Component {
     async componentDidMount() {
@@ -50,12 +54,15 @@ export default class App extends Component {
         //IF got connection, get data from contracts
         const networkData = DDocumentStorage.networks[networkId]
         if(networkData) {
+            
             //Assign contract then save it to the State Object
             const ddstorage = new web3.eth.Contract(DDocumentStorage.abi, networkData.address)
             this.setState({ ddstorage })
+            
             //Get files amount then save it to the State Object
             const filesCount = await ddstorage.methods.fileCount().call()
             this.setState({ filesCount })
+            
             //Load files&sort by the newest
             for (var i = filesCount; i >= 1; i--) {
                 const file = await ddstorage.methods.files(i).call()
@@ -63,6 +70,7 @@ export default class App extends Component {
                     files: [...this.state.files, file]
                 })
             }
+
         } else {
             //Else
             //alert Error
@@ -83,22 +91,78 @@ export default class App extends Component {
     }
     // Get file from user
     captureFile = event => {
+        event.preventDefault()
+
+        const file = event.target.files[0]
+        const reader = new window.FileReader()
+
+        reader.readAsArrayBuffer(file)
+        reader.onloadend = () => {
+            this.setState({
+                buffer: Buffer(reader.result),
+                type: file.type,
+                name: file.name
+            })
+            console.log('Buffer', this.state.buffer)
+        }
     }
 
 
     //Upload File
     uploadFile = description => {
-
+        console.log("Submitting file to IPFS...")
         //Add file to the IPFS
+        ipfs.add(this.state.buffer, (error, result) => {
+            console.log('IPFS result', result)
 
-        //Check If error
-        //Return error
+            //Check If error
+            //Return error
+            if (error) {
+                console.error(error)
+                toast.error('Something went wrong!', {
+                    duration: 2000,
+                    position: 'top-left',
+                    // Styling
+                    style: {
+                        background: '#212A38',
+                        color: '#fff',
+                    },
+                })
+                return
+            }
+    
+            //Set state to loading
+            this.setState({ loading: true })
+            
+            //Assign value for the file without extension
+            if (this.state.type === '') {
+                this.setState({ type: 'none' })
+            }
 
-        //Set state to loading
+            //Call smart contract uploadFile function
+            this.state.ddstorage.methods.uploadFile(result[0].hash, result[0].size, this.state.type, this.state.name, description).send({  from: this.state.account }).on('transactionHash', (hash) => {
+                this.setState({
+                    loading: false,
+                    type: null,
+                    name: null,
+                    transactionHash: `https://goerli.etherscan.io/tx/` + `transactionHash`
+                })
+                window.location.reload()
+            }).on('error', (e) => {
+                toast.error('ERROR!', {
+                    duration: 2000,
+                    position: 'top-left',
+                    // Styling
+                    style: {
+                        background: '#212A38',
+                        color: '#fff',
+                    },
+                })
 
-        //Assign value for the file without extension
+                this.setState({ loading: false })
+            })
 
-        //Call smart contract uploadFile function 
+        })
 
     }
 
@@ -107,6 +171,7 @@ export default class App extends Component {
         super(props)
         this.state = {
             account: '',
+            transactionHash: '',
             ddstorage: null,
             files: [],
             loading: false,
@@ -128,13 +193,16 @@ export default class App extends Component {
                 </div>
                 {
                     this.state.loading
-                        ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
+                        ? <div id="loader" className="text-center mt-5 text-white"><p>Loading...</p></div>
                         :
-                        <Main
-                            files={this.state.files}
-                            captureFile={this.captureFile}
-                            uploadFile={this.uploadFile}
-                        />
+                        <div className='content'>
+                            <UploadFileForm
+                                captureFile={this.captureFile}
+                                uploadFile={this.uploadFile}
+                            />
+                            <InfoTable files={this.state.files} transactionHash={this.state.transactionHash} />
+                            <Footer />
+                        </div>
                 }
             </>
         )

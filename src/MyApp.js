@@ -15,12 +15,12 @@ const connectors = {
 
 const MyApp = () => {
   return (
-    <ThirdwebWeb3Provider
-      supportedChainIds={supportedChainIds}
-      connectors={connectors}
-    >
-      <Button />
-    </ThirdwebWeb3Provider>
+      <ThirdwebWeb3Provider
+        supportedChainIds={supportedChainIds}
+        connectors={connectors}
+        >
+          <Button />
+      </ThirdwebWeb3Provider>
   )
 }
 

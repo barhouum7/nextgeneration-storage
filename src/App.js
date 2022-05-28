@@ -5,6 +5,7 @@ import { Footer, Header, InfoTable, UploadFileForm } from './Containers'
 import Web3 from 'web3';
 import toast, { Toaster } from 'react-hot-toast'
 import './App.css';
+import Feature from './components/feature/Feature';
 
 //Declare IPFS
 /**
@@ -85,7 +86,8 @@ export default class App extends Component {
               })
             // window.alert('DDocumentStorage contract not deployed to the detected network.')
         }
-        this.setState({ loading: false })      
+        //Set state to loading
+        this.setState({ loading: false })
 
     }
     }
@@ -145,12 +147,11 @@ export default class App extends Component {
                     loading: false,
                     type: null,
                     name: null,
-                    transactionHash: `https://goerli.etherscan.io/tx/` + `transactionHash`
                 })
                 window.location.reload()
             }).on('error', (e) => {
                 toast.error('ERROR!', {
-                    duration: 2000,
+                    duration: 3000,
                     position: 'top-left',
                     // Styling
                     style: {
@@ -171,7 +172,6 @@ export default class App extends Component {
         super(props)
         this.state = {
             account: '',
-            transactionHash: '',
             ddstorage: null,
             files: [],
             loading: false,
@@ -193,14 +193,34 @@ export default class App extends Component {
                 </div>
                 {
                     this.state.loading
-                        ? <div id="loader" className="text-center mt-5 text-white"><p>Loading...</p></div>
+                        ? <div id="loader" className="loader-spinner"></div>
                         :
-                        <div className='content'>
-                            <UploadFileForm
-                                captureFile={this.captureFile}
-                                uploadFile={this.uploadFile}
-                            />
-                            <InfoTable files={this.state.files} transactionHash={this.state.transactionHash} />
+                        <div className='content section__margin'>
+                            <div className='content-body'>
+                                <div className='gradient-background'></div>
+                                
+                                <div className='content-body__box-sections'>
+                                    <div className='content__custom-section__uploadForm'>
+                                        <div className='content__feature'>
+                                            <Feature title="Upload File"/>
+                                        </div>
+                                        <UploadFileForm
+                                            captureFile={this.captureFile}
+                                            uploadFile={this.uploadFile}
+                                        />
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div className='content-body__sections'>
+                                <div className='content__custom-section__infoTable'>
+                                    <div className='content__feature'>
+                                        <Feature title="Transaction History" />
+                                    </div>
+                                    <InfoTable files={this.state.files} />
+                                </div>
+                            </div>
+                            
                             <Footer />
                         </div>
                 }

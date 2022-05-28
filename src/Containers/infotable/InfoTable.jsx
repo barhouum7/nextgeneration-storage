@@ -6,18 +6,18 @@ import './infotable.css'
 class InfoTable extends Component {
   render() {
   return (
-    <div className='section__margin' id="stats">
-              <table className="table-sm table-bordered text-monospace" style={{ width: '1000px', maxHeight: '450px'}}>
+    <div className='infoTable-content' id="stats">
+              <table className="infoTable table-sm table-bordered">
                 <thead style={{ 'fontSize': '15px' }}>
                   <tr className="bg-dark text-white">
-                    <th scope="col" style={{ width: '10px'}}>Id</th>
-                    <th scope="col" style={{ width: '200px'}}>Name</th>
-                    <th scope="col" style={{ width: '230px'}}>Description</th>
-                    <th scope="col" style={{ width: '120px'}}>Type</th>
-                    <th scope="col" style={{ width: '90px'}}>Size</th>
-                    <th scope="col" style={{ width: '90px'}}>Date</th>
-                    <th scope="col" style={{ width: '120px'}}>Uploader/View</th>
-                    <th scope="col" style={{ width: '120px'}}>Hash/View/Get</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Uploader Name/Description</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Uploader/View</th>
+                    <th scope="col">Hash/View/Get</th>
                   </tr>
                 </thead>
                 { this.props.files.map((file, key) => {
@@ -32,10 +32,10 @@ class InfoTable extends Component {
                         <td>{moment.unix(file.uploadTime).format('h:mm:ss A M/D/Y')}</td>
                         <td>
                           <a
-                            href={this.props.transactionHash}
+                            href={"https://goerli.etherscan.io/address/" + file.uploader}
                             rel="noopener noreferrer"
                             target="_blank">
-                            {this.props.transactionHash.substring(0,10)}...
+                            {file.uploader.substring(0,10)}...
                           </a>
                         </td>
                         <td>

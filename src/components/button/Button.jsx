@@ -3,6 +3,7 @@ import React from 'react';
 import App from '../../App'
 import toast, { Toaster } from 'react-hot-toast'
 // import { useWeb3 } from '@3rdweb/hooks'
+// import { ConnectButton } from 'web3uikit';
 
 import Explain from '../../components/explain/Explain'
 import './button.css'
@@ -157,9 +158,14 @@ export default function Button() {
         <>
         <div className='connectW-container'>
           <div className='connectW-container__button'>
-              <button onClick={onClick} type='button' id='connectButton' disabled={isDisabled}>
+              <button onClick={onClick} type='button' className='connectButton' id='connectButton' disabled={isDisabled}>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 {buttonText}
               </button>
+          {/* <ConnectButton onClick={onClick} type='button' className='connectButton' id='connectButton' disabled={isDisabled} /> */}
           </div>
           <div className='connectW-container__text'>
           <p><span role="img" aria-label='MetaMask-emoji'>🦊</span><span className='connectW-container__text-info'>MetaMask is not connected to this site. 

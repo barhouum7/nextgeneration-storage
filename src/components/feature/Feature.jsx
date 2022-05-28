@@ -1,9 +1,14 @@
 import React from 'react'
 import './feature.css'
 
-function Feature() {
+function Feature({ title }) {
   return (
-    <div>Feature</div>
+    <div className='features-container__feature'>
+      <div className='features-container__feature-title'>
+          <h1>{title}</h1>
+          <div />
+      </div>
+    </div>
   )
 }
 

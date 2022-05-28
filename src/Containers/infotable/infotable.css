@@ -1,0 +1,27 @@
+.infoTable {
+    font-family: var(--font-family);
+    width: 100%;
+}
+
+@media screen and (max-width: 1050px) {
+    .infoTable th,
+    .infoTable td {
+        font-size: 6.5px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .infoTable th,
+    .infoTable td {
+        font-size: 5px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+
+    .infoTable th,
+    .infoTable td {
+        font-size: 3px;
+    }
+}

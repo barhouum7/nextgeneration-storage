@@ -1,0 +1,2 @@
+(this["webpackJsonpnextgeneration-storage"]=this["webpackJsonpnextgeneration-storage"]||[]).push([[12,15],{2425:function(n,t){},2430:function(n,t){},2431:function(n,t){},2457:function(n,t){},2458:function(n,t){}}]);
+//# sourceMappingURL=12.899fd841.chunk.js.map

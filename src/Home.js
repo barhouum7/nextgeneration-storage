@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 // import MetaMaskOnboarding from '@metamask/onboarding'
 // import { useWeb3 } from '@3rdweb/hooks'
 
-import Button from './components/button/Button'
+// import Button from './components/button/Button'
 // import './home.css'
 
 // const forwarderOrigin = 'http://localhost:3000/nextgeneration-storage';
@@ -73,14 +73,14 @@ import Button from './components/button/Button'
   
 // };
 
-export default function Home() {
-  // const { address, connectWallet } = useWeb3()
+// export default function Home() {
+//   // const { address, connectWallet } = useWeb3()
   
-  return (
-    <div>
-      <Button />
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       <Button />
+//     </div>
+//   )
+// }
 
 // window.addEventListener('DOMContentLoaded', initialize)

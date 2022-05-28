@@ -107,6 +107,7 @@ export default class App extends Component {
             })
             console.log('Buffer', this.state.buffer)
         }
+        console.log(file)
     }
 
 

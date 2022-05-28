@@ -1,0 +1,495 @@
+/* From uiverse.io by @gagan-gv */
+.btn-follow-me {
+position: relative;
+display: flex;
+overflow: hidden;
+cursor: pointer;
+width: 150px;
+height: 50px;
+background-color: #eeeeed;
+border-radius: 80px;
+border: none;
+
+top: 1.8rem;
+left: 1rem;
+
+padding: 0 80px;
+transition: all .2s ease;
+justify-content: center;
+align-items: center;
+
+}
+
+.btn-follow-me:hover {
+transform: scale(1.1);
+}
+
+.btn-follow-me span {
+position: absolute;
+z-index: 99;
+width: 300px;
+height: 50px;
+border-radius: 80px;
+font-family: 'Courier New', Courier, monospace;
+font-weight: 600;
+font-size: 17px;
+text-align: center;
+line-height: 50px;
+letter-spacing: 2px;
+color: #eeeeed;
+background-color: #1f1f1f;
+padding: 0 10px;
+transition: all 1.2s ease;
+}
+
+.btn-follow-me .container {
+display: flex;
+width: 150px;
+border-radius: 80px;
+line-height: 50px;
+}
+
+.btn-follow-me i {
+padding: 0 5px;
+opacity: 0;
+}
+
+.btn-follow-me .container i:nth-of-type(1) {
+transition-delay: 0.65s;
+}
+
+.btn-follow-me .container i:nth-of-type(2) {
+transition-delay: 0.8s;
+}
+
+.btn-follow-me .container i:nth-of-type(3) {
+transition-delay: 0.5s;
+}
+
+.btn-follow-me:hover span {
+opacity: 0;
+}
+
+.btn-follow-me:hover i {
+opacity: 1;
+}
+
+/* From uiverse.io by @pedertanberg */
+.loader {
+display: inline-block;
+position: relative;
+width: 80px;
+height: 80px;
+transform: rotate(45deg);
+transform-origin: 40px 40px;
+}
+
+.loader div {
+top: 32px;
+left: 32px;
+position: absolute;
+width: 32px;
+height: 32px;
+background: red;
+animation: loader45 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.loader div:after,
+.loader div:before {
+content: " ";
+position: absolute;
+display: block;
+width: 32px;
+height: 32px;
+background: red;
+}
+
+.loader div:before {
+left: -24px;
+border-radius: 50% 0 0 50%;
+}
+
+.loader div:after {
+top: -24px;
+border-radius: 50% 50% 0 0;
+}
+
+@keyframes loader45 {
+0% {
+    transform: scale(0.95);
+}
+
+5% {
+    transform: scale(1.1);
+}
+
+39% {
+    transform: scale(0.85);
+}
+
+45% {
+    transform: scale(1);
+}
+
+60% {
+    transform: scale(0.95);
+}
+
+100% {
+    transform: scale(0.9);
+}
+}
+
+
+.footer a {
+    text-decoration: none;
+}
+
+
+/* From uiverse.io by @WhiteNervosa */
+.footer-links_div button {
+font-size: 15px;
+color: #e1e1e1;
+font-family: var(--font-family);
+font-weight: 900;
+cursor: pointer;
+position: relative;
+border: none;
+background: none;
+text-transform: uppercase;
+transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+transition-duration: 400ms;
+transition-property: color;
+}
+
+.footer-links_div button:focus,
+.footer-links_div button:hover {
+    background: var(--gradient-text);
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.footer-links_div button:focus:after,
+.footer-links_div button:hover:after {
+    width: 100%;
+    left: 0%;
+}
+
+.footer-links_div button:after {
+content: "";
+pointer-events: none;
+bottom: -2px;
+left: 50%;
+position: absolute;
+width: 0%;
+height: 2px;
+background-color: #fff;
+transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+transition-duration: 400ms;
+transition-property: width, left;
+}
+
+
+
+  /* Icons */
+
+.icons {
+    margin-top: 1rem;
+  }
+  .icons a {
+    padding: 0.4rem;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+  }
+  .icons a:hover {
+    color: #eece1a;
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+  }
+  .icons a .fab {
+    transition: transform 0.3s;
+    /* Animation */
+  }
+  .icons a .fab:hover {
+    transform: scale(1.5);
+  }
+
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--color-footer);
+}
+
+.footer-heading {
+    width: 100%;
+    text-align: center;
+
+    margin-bottom: 3rem;
+}
+
+.footer-heading h1 {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 75px;
+}
+
+/* .footer-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: .5rem;
+    border: 1px solid #fff;
+    text-align: center;
+
+    margin-bottom: 10rem;
+    cursor: pointer;
+}
+
+.footer-btn p {
+    font-size: 18px;
+    font-family: var(--font-family);
+    line-height: 21px;
+    color: #fff;
+    word-spacing: 2px;
+} */
+
+/* From uiverse.io by @adamgiebl */
+.cssbuttons-io-button {
+    background: #A370F0;
+    color: white;
+    font-family: var(--font-family);
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+
+    margin-bottom: 5rem;
+}
+
+.cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    right: 0.3em;
+    transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+    text-align: left;
+}
+
+.footer-links div {
+    width: 10vw;
+}
+
+.footer-links_logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links_logo img {
+    width: 118px;
+    height: 118px;
+
+    margin-bottom: 1rem;
+}
+
+.footer-links_logo p {
+    font-family: var(--font-family);
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+}
+
+.footer-links_div {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.footer-links_div h4 {
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 17px;
+    font-family: var(--font-family);
+    color: #fff;
+
+    margin-bottom: 0.9rem;
+}
+
+.footer-links_div p {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: var(--font-family);
+    color: #fff;
+
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+.footer-copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+    font-size: 12px;
+    font-family: var(--font-family);
+    line-height: 15px;
+}
+
+.footer-copyright .my-signature {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    color: #fff;
+}
+.footer-copyright .my-signature .love-mark {
+    padding-right: .1rem;
+    background: var(--gradient-text);
+      /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+.footer-copyright .my-signature a {
+    color: gray;
+}
+.footer-copyright .my-signature a:hover {
+    padding-right: .1rem;
+    background: var(--gradient-text);
+    /* Set the background size and repeat properties. */
+    background-size: 100%;
+    background-repeat: repeat;
+
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+}
+
+@media screen and (max-width: 850px) {
+    .footer-heading h1 {
+        font-size: 44px;
+        line-height: 50px;
+    }
+    .footer-links {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links div p {
+        width: 50vw;
+        margin-left: -6.4rem;
+    }
+    
+    .footer-links_div button {
+        width: 15vw;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .footer-heading h1 {
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+    .footer-links div {
+        margin: 1rem 0;
+    }
+
+    .footer-btn p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .footer-links_div button {
+        width: 15vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .footer-heading h1 {
+        font-size: 27px;
+        line-height: 38px;
+    }
+    
+    .footer-links_div button {
+        width: 15vw;
+    }
+}

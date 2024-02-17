@@ -1,12 +1,58 @@
+
 .infoTable {
     font-family: var(--font-family);
     width: 100%;
+}
+
+.search-div {
+    width: 100%;
+
+    position: relative;
+}
+  
+.search-div i {
+    position: absolute;
+    right: 20px;
+    top: 55px;
+    color: #fff;
+}
+
+.search-div p {
+    font-family: var(--font-family);
+    color: #fff;
+
+    margin-bottom: 1rem;
+}
+
+input {
+    width: 100%;
+}
+
+/* From uiverse.io by @Yaseen549 */
+.search-bar {
+    font-family: var(--font-family);
+
+    color: #fff;
+    border: 2px solid #8707ff;
+    border-radius: 10px;
+    padding: 10px 25px;
+    background: transparent;
+    
+    
+    margin-bottom: 1rem;
+}
+
+.search-bar:active {
+box-shadow: 2px 2px 15px #8707ff inset;
 }
 
 @media screen and (max-width: 1050px) {
     .infoTable th,
     .infoTable td {
         font-size: 6.5px;
+    }
+    .search-div i{
+        font-size: 18.5px;
     }
 }
 
@@ -16,6 +62,14 @@
     .infoTable td {
         font-size: 5px;
     }
+    .search-bar {
+        font-size: 5px;
+    }
+
+    .search-div i{
+        font-size: 10px;
+        top: 15px;
+    }
 }
 
 @media screen and (max-width: 490px) {
@@ -24,4 +78,13 @@
     .infoTable td {
         font-size: 3px;
     }
+    .search-bar {
+        font-size: 3px;
+    }
+
+    .search-div i{
+        font-size: 3px;
+        top: 15px;
+    }
+
 }

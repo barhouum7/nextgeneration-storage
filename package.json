@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "@3rdweb/hooks": "^1.9.2",
+    "@emotion/react": "^11.9.3",
     "@metamask/onboarding": "^1.0.1",
+    "@table-library/react-table-library": "^3.1.5",
     "@truffle/hdwallet-provider": "^1.7.0",
     "@walletconnect/web3-provider": "^1.7.8",
     "@web3auth/web3auth": "^1.0.0-alpha.0",
